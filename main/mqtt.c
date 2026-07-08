@@ -8,7 +8,7 @@
 #include "nvs_flash.h"
 #include "driver/gpio.h"
 #include "mqtt_client.h"
-#include "senha.h"
+#include "secrets.h"
 
 #define SAIDA (1<<23)
 #define HIGH 1

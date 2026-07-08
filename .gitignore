@@ -1,7 +1,10 @@
 # Build e artefatos
 build/
 managed_components/
+
+# Senha dos guri
 main/secrets.h
+
 # Cache de editor/IDE
 .cache/
 .vscode/
