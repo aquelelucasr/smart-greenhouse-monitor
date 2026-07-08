@@ -1,0 +1,10 @@
+# Build e artefatos
+build/
+managed_components/
+main/secrets.h
+# Cache de editor/IDE
+.cache/
+.vscode/
+
+# Config local (ver nota sobre sdkconfig abaixo)
+sdkconfig
