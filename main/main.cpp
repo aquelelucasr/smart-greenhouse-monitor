@@ -86,7 +86,7 @@ extern "C" void app_main(void)
 
     meuMqtt.subHandler(message_handler);
 
-    // assinando os topicos exigidos pelo trabalho
+    // assinando os topicos exigidos
     meuMqtt.sub("/configura/alta");
     meuMqtt.sub("/configura/baixa");
     meuMqtt.sub("/informa/temperaturaCorrente");
