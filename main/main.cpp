@@ -13,6 +13,7 @@
 #include "secrets.h"
 #include "WIFI.h"
 #include "MQTT.h"
+#include "DS18B20.h"
 
 #define OUTPUT_PIN GPIO_NUM_23
 #define HIGH 1
@@ -32,7 +33,7 @@ void message_handler(const char* topic, const char* payload) {
 
 extern "C" void app_main(void)
 {
-    gpio_config_t io_conf = {}; // chaves vazias para limpar possíveis warnings
+    gpio_config_t io_conf = {}; // zerando chaves para limpar possíveis warnings
     io_conf.intr_type = GPIO_INTR_DISABLE; // sem interrupcoes
     io_conf.mode = GPIO_MODE_OUTPUT; // pinos de saida
     
@@ -55,8 +56,14 @@ extern "C" void app_main(void)
     meuMqtt.sub("/configura/alta");
     meuMqtt.sub("/configura/baixa");
 
+    // instanciando o sensor falso pq to sem os jumper pra testar o de verdade :(
+    DS18B20 meuSensor = DS18B20();
+
     while (1) {
-        // toma mais delay dos guri
+        float temperatura = meuSensor.le();
+        printf("Temperatura atual simulada: %.2f graus\n", temperatura);
+
+        // toma mais delay dos guri (nesse caso, pra ler a temperatura de de 5 em 5 segundos)
         vTaskDelay(pdMS_TO_TICKS(5000)); 
     }
 }
