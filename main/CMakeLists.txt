@@ -1,2 +1,2 @@
-idf_component_register(SRCS "mqtt.c"
+idf_component_register(SRCS "main.cpp" "WIFI.cpp" "MQTT.cpp"
                     INCLUDE_DIRS ".")
