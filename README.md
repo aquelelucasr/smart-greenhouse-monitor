@@ -88,10 +88,10 @@ idf.py build flash monitor
 
 ## 🧪 Como Testar e Configurar Dinamicamente (Via Terminal)
 
-O grande diferencial deste sistema é a capacidade de alterar as regras de negócio em tempo real pela internet, sem precisar reiniciar o ESP32. Para isso, instale e utilize as ferramentas de linha de comando `mosquitto_clients`[cite: 40].
+O grande diferencial deste sistema é a capacidade de alterar as regras de negócio em tempo real pela internet, sem precisar reiniciar o ESP32. Para isso, instale e utilize as ferramentas de linha de comando `mosquitto_clients`.
 
 ### 1. Alterando os Limites de Temperatura
-O dispositivo ouve constantemente os tópicos de configuração. Para alterar o limite máximo para **30.5 graus**, publique uma mensagem[cite: 43, 44]:
+O dispositivo ouve constantemente os tópicos de configuração. Para alterar o limite máximo para **30.5 graus**, publique uma mensagem:
 
 ```bash
 mosquitto_pub -h broker.emqx.io -t "/configura/alta" -m "30.5"
@@ -113,7 +113,7 @@ mosquitto_pub -h broker.emqx.io -t "/informa/temperaturaCorrente" -m ""
 ```
 
 ### 3. Ouvindo os Alertas (Monitoramento)
-Para visualizar o sistema funcionando e receber as mensagens publicadas pelo ESP32, deixe um terminal rodando o comando de assinatura genérica[cite: 45]:
+Para visualizar o sistema funcionando e receber as mensagens publicadas pelo ESP32, deixe um terminal rodando o comando de assinatura genérica:
 
 ```bash
 mosquitto_sub -h broker.emqx.io -t "/alerta/#" -v
