@@ -94,13 +94,13 @@ extern "C" void app_main(void)
     meuMqtt.sub("/informa/limiteBaixa");
 
     // instanciando o sensor falso pq to sem os jumper pra testar o de verdade :(
-    DS18B20 meuSensor = DS18B20();
+    DS18B20 meuSensor = DS18B20(GPIO_NUM_4);
 
     char buffer[20]; // bufferzinho pra converter float pra string
 
     while (1) {
-        temperatura_corrente = meuSensor.le();
-        printf("Temperatura simulada: %.2f graus (Baixa: %.1f | Alta: %.1f)\n", temperatura_corrente, limite_baixa, limite_alta);
+        temperatura_corrente = meuSensor.readTemp();
+        printf("Temperatura: %.2f graus (Baixa: %.1f | Alta: %.1f)\n", temperatura_corrente, limite_baixa, limite_alta);
 
         // Alertas automaticos
         if (temperatura_corrente > limite_alta) {
