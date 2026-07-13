@@ -16,8 +16,12 @@ void ONEWIRE::low(void)
 }
 void ONEWIRE::high(void)
 {
+<<<<<<< HEAD
     // esqueci de pegar um resistor, ent mudei input pra input_pullup (gambiarra?)
     digital.pinMode(PIN_DADOS, INPUT_PULLUP);
+=======
+     digital.pinMode(PIN_DADOS, INPUT);
+>>>>>>> feat/mqtt-integration-and-sensor-build
 }
 uint8_t ONEWIRE::reset (void)
 {
